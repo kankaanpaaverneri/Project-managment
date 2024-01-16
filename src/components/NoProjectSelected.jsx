@@ -1,12 +1,12 @@
 import "../index.css";
 
 
-const NoProjectSelected = ({ createNewProject }) => {
+const NoProjectSelected = ({ setDisplayCreateNewProject }) => {
     return (
         <div className="no-project-selected">
             <h1>No project selected</h1>
             <h2>Select a project or get started with a new one.</h2>
-            <button onClick={() => createNewProject("NoProjectSelected()")}>Create new project</button>
+            <button onClick={() => setDisplayCreateNewProject(true)}>Create new project</button>
         </div>
     );
 }

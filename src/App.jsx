@@ -16,12 +16,32 @@ function App() {
   //Holds information about the current project that was selected (right now set to boolean)
   const [projectSelected, setProjectSelected] = useState(false);
 
-  function createNewProject(component) {
-    console.log("Create new project called from: ", component);
+  //If true displays createNewProject component
+  const [displayCreateNewProject, setDisplayCreateNewProject] = useState(false);
+
+  function createNewProject({ titleData, descriptionData, dateData }) {
+    //Create new project
+    setProjects(prevProjectsState => {
+      const updatedProjectsState = [...prevProjectsState];
+      updatedProjectsState.push({
+        title: titleData === "" ? "Ei nimeä" : titleData,
+        description: descriptionData === "" ? "Ei kuvausta" : descriptionData,
+        date: dateData,
+        id: updatedProjectsState[updatedProjectsState.length - 1].id + 1,
+      });
+      return updatedProjectsState;
+    });
+
+    setDisplayCreateNewProject(() => false)
+
+    //
   }
 
-  function displaySelectedProject(selectedProjectTitle) {
-    console.log("Project: ", selectedProjectTitle);
+  function displaySelectedProject(title, description, date, id) {
+    console.log("Project: ", title);
+    console.log("Description: ", description);
+    console.log("Date: ", date);
+    console.log("ID: ", id);
   }
 
   return (
@@ -29,10 +49,16 @@ function App() {
       <div className='app'>
         <Menu
           displaySelectedProject={displaySelectedProject}
-          createNewProject={createNewProject}
+          setDisplayCreateNewProject={setDisplayCreateNewProject}
           projects={projects}
         />
-        {projectSelected ? <CreateProject createNewProject={createNewProject} /> : <NoProjectSelected createNewProject={createNewProject} />}
+        {displayCreateNewProject ?
+          <CreateProject
+            createNewProject={createNewProject}
+            setDisplayCreateNewProject={setDisplayCreateNewProject}
+          /> :
+          <NoProjectSelected
+            setDisplayCreateNewProject={setDisplayCreateNewProject} />}
       </div>
     </>
   )
