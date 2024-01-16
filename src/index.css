@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.app {
+  background: white;
+  color: black;
+  text-align: center;
+}
+
+/* Menu styles */
+.menu {
+  background: black;
+  color: white;
+  position: fixed;
+  top: 10%;
+  left: -1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 15px;
+  text-align: left;
+  padding: 5%;
+}
+
+.menu h1 {
+  font-size: 25px;
+}
+
+.menu button {
+  background: rgb(68, 68, 68);
+  color: rgb(145, 132, 132);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10%;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 1rem;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.menu button:hover {
+  background: rgb(94, 91, 91);
+}
+
+.project-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 15%;
+}
+
+.project-list button {
+  background: none;
+  color: white;
+}
+
+.project-list button:hover {
+  background: rgba(211, 211, 211, 0.6);
+  color: white;
+}
+
+/* NoProjectSelected styles */
+.no-project-selected {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 5%;
+}
+
+.no-project-selected h1 {
+  color: gray;
+  margin-top: 3%;
+  font-size: 50px;
+}
+
+.no-project-selected h2 {
+  color: black;
+  font-size: 30px;
+  margin-top: 3%;
+}
+
+.no-project-selected button {
+  padding: 1rem;
+  background: black;
+  color: white;
+  border: none;
+  box-shadow: 1px 1px 1px black;
+  border-radius: 15px;
+  margin-top: 3%;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.no-project-selected button:hover {
+  background: rgb(59, 59, 59);
+  color: rgb(153, 153, 153);
+}
+
+
+/* create-project styles */
+
+.create-project {
+  display: inline-block;
+  text-align: left;
+  margin-top: 10%;
+  width: 30%;
+}
+
+.create-project button {
+  background: white;
+  color: black;
+  margin-left: 5%;
+  border: none;
+  padding: 2%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-project #save {
+  background: black;
+  color: white;
+  margin-left: 5%;
+  border: none;
+}
+
+.create-project #save:hover {
+  background: rgb(70, 70, 70);
+}
+
+.create-project #cancel:hover {
+  background: rgb(209, 209, 209);
+  color: black;
+}
+
+
+.option-buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-fields label {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.input-fields input {
+  height: 3rem;
+  border-style: groove;
+  border-radius: 5px;
+}
+
+.input-fields textarea {
+  border-style: groove;
+}
+
+@media (max-width: 1000px) {
+
+  /* Menu styles */
+  .menu {
+    padding: 8%;
+  }
+
+  .menu h1 {
+    font-size: 18px;
+  }
+
+  .menu button {
+    height: 3rem;
+    width: 7rem;
+    font-size: 12px;
+  }
+
+  /* NoProjectSelected styles */
+  .no-project-selected {
+    margin-top: 20%;
+    margin-left: 50%;
+    padding-right: 5%;
+  }
+
+  .no-project-selected h1 {
+    font-size: 20px;
+  }
+
+  .no-project-selected h2 {
+    font-size: 18px;
+
+  }
+
+  .no-project-selected button {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+
+  /* create-project styles */
+
+  .create-project {
+    margin-left: 30%;
+    width: 50%;
+    margin-top: 15%;
+  }
+
+  .input-fields {
+    width: 80%;
+  }
+
+  .create-project button {
+    padding: 5%;
+  }
+
+  .input-fields label {
+    font-size: 15px;
+  }
+
+
+
+  .input-fields {
+    margin-top: 20%;
+    padding-right: 10%;
+    margin-left: 20%;
+  }
+
+  .input-fields input {
+    height: 2rem;
+    border-style: groove;
+    border-radius: 5px;
+  }
+}
