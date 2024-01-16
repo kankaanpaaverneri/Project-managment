@@ -4,6 +4,7 @@ import './App.css';
 import Menu from "./components/Menu.jsx";
 import NoProjectSelected from './components/NoProjectSelected.jsx';
 import CreateProject from './components/CreateProject.jsx';
+import EditProject from './components/EditProject.jsx';
 
 
 
@@ -31,7 +32,7 @@ function App() {
           createNewProject={createNewProject}
           projects={projects}
         />
-        {projectSelected ? <CreateProject setProjects={setProjects} /> : <NoProjectSelected createNewProject={createNewProject} />}
+        {projectSelected ? <CreateProject createNewProject={createNewProject} /> : <NoProjectSelected createNewProject={createNewProject} />}
       </div>
     </>
   )

@@ -168,6 +168,109 @@
   border-style: groove;
 }
 
+/* EditProject styles */
+.edit-project {
+  display: flex;
+  text-align: left;
+  margin-top: 10%;
+  margin-left: 40%;
+}
+
+.edit-project .header {
+  font-size: 25px;
+}
+
+.edit-project .header h1 {
+  margin-bottom: 10%;
+}
+
+.edit-project .header p {
+  margin-bottom: 10%;
+}
+
+.options {
+  display: flex;
+}
+
+.options button {
+  margin-left: 5%;
+  background: none;
+  width: 5rem;
+  height: 2rem;
+  margin-top: 10%;
+  border: none;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+.options button:hover {
+  background: rgb(218, 218, 218);
+}
+
+.options #delete {
+  background: black;
+  color: white;
+}
+
+.options #delete:hover {
+  background: rgb(66, 66, 66);
+}
+
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-left: 40%;
+  margin-top: 1%;
+  text-align: left;
+}
+
+.tasks h1 {
+  font-size: 40px;
+  margin-bottom: 5%;
+}
+
+.tasks button {
+  background: white;
+  border: none;
+  border-radius: 5px;
+  padding: 1%;
+  cursor: pointer;
+}
+
+.tasks button:hover {
+  background: rgb(180, 180, 180);
+  cursor: pointer;
+}
+
+.task-list {
+  display: flex;
+  align-items: center;
+}
+
+.add-task {
+  margin-bottom: 1%;
+}
+
+.add-task input {
+  border-style: groove;
+  border-radius: 5px;
+}
+
+.task-list input {
+  border: none;
+}
+
+.task-list button {
+  cursor: pointer;
+}
+
+.task-list button:hover {
+  background: rgb(196, 196, 196);
+}
+
 @media (max-width: 1000px) {
 
   /* Menu styles */
@@ -238,5 +341,47 @@
     height: 2rem;
     border-style: groove;
     border-radius: 5px;
+  }
+
+  /* EditProject styles */
+
+  .edit-project {
+    margin-left: 45%;
+    margin-top: 30%;
+  }
+
+  .edit-project .header {
+    font-size: 15px;
+  }
+
+  .edit-project .header h1 {
+    margin-bottom: 10%;
+  }
+
+  .edit-project .header p {
+    margin-bottom: 10%;
+  }
+
+  .options {
+    margin-right: 5%;
+  }
+
+  .options button {
+    background: none;
+    width: 3rem;
+    height: 2rem;
+  }
+
+  .tasks {
+    margin-left: 45%;
+  }
+
+  .tasks h1 {
+    font-size: 20px;
+    margin-bottom: 5%;
+  }
+
+  .add-task {
+    margin-bottom: 10%;
   }
 }
