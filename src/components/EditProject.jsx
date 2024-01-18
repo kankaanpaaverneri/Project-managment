@@ -1,13 +1,14 @@
 import "../index.css";
 
-const EditProject = () => {
+const EditProject = ({ projectSelected }) => {
+    const { title, description, date, tasks, id } = projectSelected;
     return (
         <>
             <div className="edit-project">
                 <div className="header">
-                    <h1>Learning React</h1>
-                    <p>Dec 29, 2024</p>
-                    <p>Learn React from the group up</p>
+                    <h1>{title}</h1>
+                    <p>{date}</p>
+                    <p>{description}</p>
                 </div>
                 <div className="options">
                     <button id="edit-and-save">Edit</button>
@@ -23,8 +24,12 @@ const EditProject = () => {
                     <button>Add task</button>
                 </div>
                 <div className="task-list">
-                    <input value={"HOMO"} type="text" />
-                    <button>Clear</button>
+                    {tasks.map(task => {
+                        <div>
+                            <input value={task} type="text" />
+                            <button>Clear</button>
+                        </div>
+                    })}
                 </div>
             </div>
         </>

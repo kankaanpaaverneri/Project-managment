@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import "../index.css";
 
-const CreateProject = ({ createNewProject, setDisplayCreateNewProject }) => {
+const CreateProject = ({ createNewProject, setDisplayWindow }) => {
 
     //Refs for holding input values
     const titleRef = useRef();
@@ -21,7 +21,13 @@ const CreateProject = ({ createNewProject, setDisplayCreateNewProject }) => {
 
     return (<div className="create-project">
         <div className="option-buttons">
-            <button onClick={() => setDisplayCreateNewProject(false)} id="cancel">Cancel</button>
+            <button onClick={() => setDisplayWindow(() => {
+                return {
+                    noProjectSelected: true,
+                    createProject: false,
+                    editProject: false
+                };
+            })} id="cancel">Cancel</button>
             <button onClick={() => createNewProject(getProjectData())} id="save">Save</button>
         </div>
         <div className="input-fields">
