@@ -246,11 +246,12 @@
 }
 
 .task-list {
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  width: 20%;
 }
 
 .add-task {
+
   margin-bottom: 1%;
 }
 
@@ -269,6 +270,27 @@
 
 .task-list button:hover {
   background: rgb(196, 196, 196);
+
+
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  color: black;
+  background: rgb(216, 216, 216);
+  padding: 1%;
+}
+
+.task p {
+  width: 10rem;
+  color: black;
+}
+
+.task button {
+  border: none;
+  width: 5rem;
+  height: 2rem;
 }
 
 @media (max-width: 1000px) {
@@ -379,6 +401,20 @@
   .tasks h1 {
     font-size: 20px;
     margin-bottom: 5%;
+  }
+
+  .task-list {
+    width: 80%;
+  }
+
+  .task p {
+    font-size: 12px;
+  }
+
+  .task button {
+    font-size: 12px;
+    width: 2rem;
+    height: 1rem;
   }
 
   .add-task {

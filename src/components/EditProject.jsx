@@ -1,7 +1,9 @@
+import { useRef, forwardRef, useEffect } from "react";
 import "../index.css";
 
-const EditProject = ({ projectSelected }) => {
+const EditProject = forwardRef(({ projectSelected, addTask }, ref) => {
     const { title, description, date, tasks, id } = projectSelected;
+
     return (
         <>
             <div className="edit-project">
@@ -20,13 +22,15 @@ const EditProject = ({ projectSelected }) => {
                     <h1>Tasks</h1>
                 </div>
                 <div className="add-task">
-                    <input type="text" />
-                    <button>Add task</button>
+                    <input ref={ref} type="text" />
+                    <button onClick={() => {
+                        addTask();
+                    }}>Add task</button>
                 </div>
                 <div className="task-list">
-                    {tasks.map(task => {
-                        <div>
-                            <input value={task} type="text" />
+                    {tasks.map((task, index) => {
+                        return <div key={index} className="task">
+                            <p>{task}</p>
                             <button>Clear</button>
                         </div>
                     })}
@@ -34,6 +38,6 @@ const EditProject = ({ projectSelected }) => {
             </div>
         </>
     );
-}
+});
 
 export default EditProject;
