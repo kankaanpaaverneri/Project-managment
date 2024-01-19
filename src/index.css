@@ -168,6 +168,8 @@
   border-style: groove;
 }
 
+
+
 /* EditProject styles */
 .edit-project {
   display: flex;
@@ -176,7 +178,10 @@
   margin-left: 40%;
 }
 
+
 .edit-project .header {
+  display: flex;
+  flex-direction: column;
   font-size: 25px;
 }
 
@@ -368,16 +373,17 @@
   /* EditProject styles */
 
   .edit-project {
+    display: flex;
     margin-left: 45%;
     margin-top: 30%;
   }
 
   .edit-project .header {
-    font-size: 15px;
+    font-size: 12px;
   }
 
-  .edit-project .header h1 {
-    margin-bottom: 10%;
+  .edit-project .header input {
+    width: 8rem;
   }
 
   .edit-project .header p {
@@ -385,7 +391,9 @@
   }
 
   .options {
-    margin-right: 5%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
   }
 
   .options button {

@@ -91,6 +91,17 @@ function App() {
     });
   }
 
+  function saveChanges(id, title, description, date) {
+    setProjects((prevProjects) => {
+      console.log(prevProjects[id - 1]);
+      prevProjects[id - 1].title = title === "" ? prevProjects[id - 1].title : title;
+      prevProjects[id - 1].description = description === "" ? prevProjects[id - 1].description : description;
+      prevProjects[id - 1].date = date == "" ? prevProjects[id - 1].date : date;
+      return prevProjects;
+    });
+
+  }
+
   return (
     <>
       <div className='app'>
@@ -102,9 +113,15 @@ function App() {
         {displayWindow.editProject && <EditProject
           projectSelected={projects[selectedProject - 1]}
           deleteProject={deleteProject}
-          addTask={addTask} clearTask={clearTask} ref={taskRef} />}
-        {displayWindow.createProject && <CreateProject createNewProject={createNewProject} setDisplayWindow={setDisplayWindow} />}
-        {displayWindow.noProjectSelected && <NoProjectSelected setDisplayWindow={setDisplayWindow} />}
+          saveChanges={saveChanges}
+          addTask={addTask}
+          clearTask={clearTask}
+          ref={taskRef} />}
+        {displayWindow.createProject && <CreateProject
+          createNewProject={createNewProject}
+          setDisplayWindow={setDisplayWindow} />}
+        {displayWindow.noProjectSelected && <NoProjectSelected
+          setDisplayWindow={setDisplayWindow} />}
       </div>
     </>
   )
