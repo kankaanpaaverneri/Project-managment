@@ -14,8 +14,7 @@ function isEmptyObject(obj) {
 function App() {
   //Array of all the projects
   const [projects, setProjects] = useState([]);
-  //Holds information about the current project that was selected (right now set to boolean)
-  const [projectSelected, setProjectSelected] = useState({});
+  const [selectedProject, setSelectedProject] = useState(0);
 
   //If true displays createNewProject component
   const [displayWindow, setDisplayWindow] = useState({
@@ -27,32 +26,12 @@ function App() {
   const taskRef = useRef();
 
   function addTask() {
-    setProjectSelected((prevSelectedProject) => {
-      const updatedSelectedProject = {
-        title: prevSelectedProject.title,
-        description: prevSelectedProject.description,
-        date: prevSelectedProject.date,
-        tasks: [...prevSelectedProject.tasks],
-        id: prevSelectedProject.id,
-      };
 
-      updatedSelectedProject.tasks.push(taskRef.current.value);
-      return updatedSelectedProject;
-    });
-
-    setProjects((prevProjects => {
-      const currentProject = projects.find(project => project.id === projectSelected.id);
-      currentProject.tasks = projectSelected.tasks;
-      const updatedProjects = [...prevProjects];
-      updatedProjects[projectSelected.id - 1] = currentProject;
-      return updatedProjects;
-    }));
+    console.log("Add task");
 
   }
 
   function createNewProject({ titleData, descriptionData, dateData }) {
-    //Deselect current project
-    setProjectSelected(() => { return {}; });
     //Create new project
     setProjects(prevProjectsState => {
       const updatedProjectsState = [...prevProjectsState];
@@ -60,9 +39,10 @@ function App() {
         title: titleData === "" ? "Ei nimeä" : titleData,
         description: descriptionData === "" ? "Ei kuvausta" : descriptionData,
         date: dateData,
-        tasks: prevProjectsState.tasks,
+        tasks: !prevProjectsState.tasks ? [] : prevProjectsState.tasks,
         id: updatedProjectsState.length === 0 ? 1 : updatedProjectsState[updatedProjectsState.length - 1].id + 1,
       });
+
       return updatedProjectsState;
     });
 
@@ -77,17 +57,8 @@ function App() {
     //
   }
 
-  function editSelectedProject(title, description, date, id) {
-    setProjectSelected((prevProjectSelected) => {
-      return {
-        title: title,
-        description: description,
-        date: date,
-        tasks: isEmptyObject(prevProjectSelected) ? [] : prevProjectSelected.tasks,
-        id: id
-      };
-    });
-
+  function selectProject(id) {
+    setSelectedProject(() => id);
     setDisplayWindow(() => {
       return {
         noProjectSelected: false,
@@ -101,11 +72,11 @@ function App() {
     <>
       <div className='app'>
         <Menu
-          editSelectedProject={editSelectedProject}
+          selectProject={selectProject}
           setDisplayWindow={setDisplayWindow}
           projects={projects}
         />
-        {displayWindow.editProject && <EditProject projectSelected={projectSelected} addTask={addTask} ref={taskRef} />}
+        {displayWindow.editProject && <EditProject projectSelected={projects[selectedProject - 1]} addTask={addTask} ref={taskRef} />}
         {displayWindow.createProject && <CreateProject createNewProject={createNewProject} setDisplayWindow={setDisplayWindow} />}
         {displayWindow.noProjectSelected && <NoProjectSelected setDisplayWindow={setDisplayWindow} />}
       </div>

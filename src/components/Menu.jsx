@@ -1,7 +1,7 @@
 import '../index.css';
 import NoProjectSelected from './NoProjectSelected';
 
-const Menu = ({ editSelectedProject, setDisplayWindow, projects }) => {
+const Menu = ({ selectProject, setDisplayWindow, projects }) => {
     return (
         <div className='menu'>
             <h1>Your Projects</h1>
@@ -16,7 +16,7 @@ const Menu = ({ editSelectedProject, setDisplayWindow, projects }) => {
                 {projects.map(project => {
                     return <button
                         key={project.id}
-                        onClick={() => editSelectedProject(project.title, project.description, project.date, project.id)}
+                        onClick={() => selectProject(project.id)}
                     >{project.title}</button>
                 })}
             </div>
