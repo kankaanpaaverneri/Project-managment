@@ -1,7 +1,7 @@
 import { useRef, forwardRef, useEffect } from "react";
 import "../index.css";
 
-const EditProject = forwardRef(({ projectSelected, addTask }, ref) => {
+const EditProject = forwardRef(({ projectSelected, deleteProject, addTask, clearTask }, ref) => {
     const { title, description, date, tasks, id } = projectSelected;
 
     return (
@@ -14,7 +14,7 @@ const EditProject = forwardRef(({ projectSelected, addTask }, ref) => {
                 </div>
                 <div className="options">
                     <button id="edit-and-save">Edit</button>
-                    <button id="delete">Delete</button>
+                    <button onClick={() => deleteProject(id)} id="delete">Delete</button>
                 </div>
             </div>
             <div className="tasks">
@@ -31,7 +31,7 @@ const EditProject = forwardRef(({ projectSelected, addTask }, ref) => {
                     {tasks.map((task, index) => {
                         return <div key={index} className="task">
                             <p>{task}</p>
-                            <button>Clear</button>
+                            <button onClick={() => clearTask(index)}>Clear</button>
                         </div>
                     })}
                 </div>
